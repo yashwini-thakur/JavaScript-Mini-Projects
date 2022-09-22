@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script
+      src="https://kit.fontawesome.com/e5adb60c11.js"
+      crossorigin="anonymous"
+    ></script> -->
+    <title>Sound Board</title>
+  </head>
+  <body>
+    <audio id="Animals" src="./Animals(Maroon5).mp3"></audio>
+    <audio id="Bang Bang" src="./Bang Bang.mp3"></audio>
+    <audio id="Faded" src="./Faded.mp3"></audio>
+    <audio id="Rolling In the Deep" src="./Rolling In The Deep.mp3"></audio>
+    <audio id="Waka Waka" src="./Waka Waka.mp3"></audio>
+    <div id="buttons"></div>
+
+    <!-- <script src="script.js"></script> -->
+    <script>
+      const sounds = [
+        "Animals",
+        "Bang Bang",
+        "Faded",
+        "Rolling In the Deep",
+        "Waka Waka",
+      ];
+
+      sounds.forEach((sound) => {
+        const btn = document.createElement("button");
+        btn.classList.add("btn");
+
+        btn.innerText = sound;
+
+        btn.addEventListener("click", () => {
+          stopSongs();
+          document.getElementById(sound).play();
+        });
+
+        document.getElementById("buttons").appendChild(btn);
+        //   document.querySelector("#buttons").appendChild(btn);
+      });
+      function stopSongs() {
+        sounds.forEach((sound) => {
+          const song = document.getElementById(sound);
+          console.log(sound);
+          song.pause();
+          song.currentTime = 0;
+        });
+      }
+    </script>
+  </body>
+</html>
